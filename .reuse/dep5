@@ -1,0 +1,18 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: gwyddion
+Upstream-Contact: David Necas (Yeti) <yeti@gwyddion.net>, Petr Klapetek <klapetek@gwyddion.net>
+Source: https://sourceforge.net/p/gwyddion/code/HEAD/tree/trunk/gwyddion/modules/file/nt-mdt.c
+
+Files: NTMDTRead/kaitai/nt_mdt.py 
+Copyright: KOLANICH, 2017
+Copyright: 2004-2017 David Necas (Yeti), Petr Klapetek
+License: GPL-2.0-or-later
+
+Files: NTMDTRead/NDimData.py NTMDTRead/NTMDTReader.py examples/show.py
+Copyright: KOLANICH, 2017
+License: GPL-3.0-or-later
+Disclaimer: Usage of GPL-3.0 is not considered to be an approval of so called "intellectual property" system. It must be abolished. GPL is upgraded because GPL 3.0 feels better, and if have to use GPL (evil by itself) at all, let's try to extract as much good from this necessary evil as possible. Tivoization is evil.
+
+Files: .ci .github NTMDTRead/utils NTMDTRead/palettes .gitignore .gitattributes .editorconfig .gitmodules ReadMe.md Code_Of_Conduct.md .gitlab-ci.yml pyproject.toml setup.py setup.cfg NTMDTRead/kaitai/nt_mdt_256.py NTMDTRead/kaitai/nt_mdt_color_table.py NTMDTRead/kaitai/nt_mdt_pal.py examples/matplotlibColorMapConvert.py NTMDTRead/kaitaiParseBase.py NTMDTRead/kaitai/ieee754_float.py NTMDTRead/kaitai/f10le.py NTMDTRead/colors.py NTMDTRead/NTMDTReaderTSV.py NTMDTRead/NT-MDTFileSchema.ini
+Copyright: KOLANICH
+License: Unlicense

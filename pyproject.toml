@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=61.2.0", "wheel", "setuptools_scm[toml]>=3.4.3", "kaitaiStructCompile"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "NTMDTRead"
+authors = [{name = "KOLANICH"}]
+description = "A set of tools to read NT-MDT files."
+readme = "ReadMe.md"
+keywords = ["nt-mdt", "AFM", "SPM", "probe", "microscopy", "mdt", "palette"]
+license = {text = "Unlicense or GPLv3 depending on module"}
+classifiers = [
+	"Programming Language :: Python",
+	"Programming Language :: Python :: 3",
+	"Development Status :: 4 - Beta",
+	"Environment :: Other Environment",
+	"Intended Audience :: Developers",
+	"License :: Public Domain",
+	"License :: OSI Approved :: GNU General Public License (GPL)",
+	"Operating System :: OS Independent",
+]
+urls = {Homepage = "https://gitlab.com/KOLANICH/NTMDTRead"}
+dependencies = [
+	"kaitaistruct @ git+https://github.com/kaitai-io/kaitai_struct_python_runtime.git",
+	"numpy",
+	"matplotlib",
+	"pint @ git+https://github.com/hgrecco/pint.git",
+	"configobj",
+	"beautifulsoup4",
+	"lxml",
+	"lazy_object_proxy",
+]
+dynamic = ["version"]
+
+[tool.setuptools]
+zip-safe = true
+packages = ["NTMDTRead", "NTMDTRead.palettes", "NTMDTRead.utils", "NTMDTRead.kaitai"]
+include-package-data = true
+
+[tool.setuptools_scm]
+
+[tool.kaitai]
+
+[tool.kaitai.repos."https://github.com/KOLANICH/kaitai_struct_formats.git"."mdt"]
+update = true
+search = true
+localPath = "kaitai_struct_formats" # rel to pyproject.toml dir
+inputDir = "scientific/nt_mdt" # rel to localPath
+outputDir = "NTMDTRead/kaitai" # rel to localPath
+
+[tool.kaitai.repos."https://github.com/KOLANICH/kaitai_struct_formats.git"."mdt".formats]
