@@ -1,0 +1,45 @@
+#image: travisci/ci-garnet:packer-1512502276-986baf0
+image: python:latest
+
+build:
+  tags:
+    - shared
+  stage: build
+  variables:
+    GIT_DEPTH: "1"
+
+  before_script:
+    - source ./.ci/before.sh
+
+  script:
+    - python3 setup.py bdist_wheel
+    - pip3 install --upgrade ./dist/*.whl
+    - mkdir ./wheels
+    - mv ./dist/*.whl ./wheels/NTMDTRead-0.CI-py3-none-any.whl
+    - python3 ./examples/matplotlibColorMapConvert.py
+
+  cache:
+    paths:
+      - /usr/local/site-packages
+      - /usr/local/lib/python*/site-packages
+      - kaitai_struct_formats
+
+  artifacts:
+    paths:
+      - wheels
+      - palletes
+
+sast:
+  tags:
+    - shared
+  image: docker:latest
+  variables:
+    DOCKER_DRIVER: overlay2
+  allow_failure: true
+  services:
+    - docker:dind
+  script:
+    - docker run --env SAST_CONFIDENCE_LEVEL=5 --volume "$PWD:/code" --volume /var/run/docker.sock:/var/run/docker.sock "registry.gitlab.com/gitlab-org/security-products/sast:latest" /app/bin/run /code
+  artifacts:
+    paths:
+     - gl-sast-report.json

@@ -1,0 +1,13 @@
+os:
+  - linux
+  - osx
+dist: trusty
+language: python
+python:
+  - "3.6"
+  - "nightly"
+  - "pypy3-nightly"
+before_install:
+  - source ./.ci/before.sh
+install:
+  - pip install --upgrade ./

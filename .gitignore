@@ -1,0 +1,9 @@
+__pycache__
+*.pyc
+*.pyo
+./NTMDTRead.egg-info
+./build
+./dist
+./.eggs
+./test_data
+./kaitai_struct_formats
