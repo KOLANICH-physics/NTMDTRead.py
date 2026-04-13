@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=61.2.0", "wheel", "setuptools_scm[toml]>=3.4.3", "kaitaiStructCompile"]
+requires = ["setuptools>=61.2.0", "wheel", "setuptools_scm[toml]>=10.0.5", "kaitaiStructCompile"]
 build-backend = "setuptools.build_meta"
 
 [project]
